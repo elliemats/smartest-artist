@@ -51,9 +51,10 @@ $('#addNewColor').click(function(){
 $canvas.mousedown(function(e) {
   lastEvent = e;
   mouseDown = true;
-}).mousemove(function(e) {
+})
+
+$canvas.mousemove(function(e) {
 if(mouseDown) {  
-  // draw lines 
 context.beginPath();
 context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
 context.lineTo(e.offsetX, e.offsetY);
@@ -61,9 +62,13 @@ context.strokeStyle = color;
 context.stroke();
 lastEvent = e;
 }
-}).mouseup(function() {
+})
+
+$canvas.mouseup(function() {
   mouseDown = false;
-}).mouseleave(function() {
+})
+
+$canvas.mouseleave(function() {
   $canvas.mouseup();
 })
 
